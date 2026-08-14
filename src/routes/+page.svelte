@@ -7,7 +7,7 @@
   <header class="intro">
     <h1 class="name">Tanner Berman</h1>
     <p class="tagline">
-      I'm a software engineer passionate about AI-driven tech, backend work, and data engineering. I also love tinkering with fun low-level projects and occasionally diving into reverse engineering. I'm also a singer-guitarist, beach volleyball player, and an avid foodie.
+      
     </p>
   </header>
 
