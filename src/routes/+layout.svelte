@@ -5,11 +5,12 @@
   let { children } = $props();
 </script>
 
+
+
 <ShaderBackground
-  colors={["#000000", "#636363", "#696969", "#f4dcdc"]}
-  speed={0.1}
+  colors={["#e0ebf0", "#eaf4fb", "#f0fffc", "#f0f5ff"]}
+  speed={0.65}
   scale={1.15}
-  opacity={0.15}
   swirl={1.2}
 />
 {@render children()}

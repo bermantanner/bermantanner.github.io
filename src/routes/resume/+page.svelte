@@ -36,8 +36,7 @@
 </main>
 
 <style>
-  /* Wider than the shared 46rem column so the document still gets its full
-     760px rather than being squeezed by the text-column width. */
+  /* Wider than the shared column so the document gets its full 760px. */
   .page-resume {
     max-width: 52rem;
     padding-block: 3rem;
@@ -56,8 +55,6 @@
   }
 
   .download-btn {
-    /* .page aligns its children left; this one opts out and centres under the
-       document. */
     align-self: center;
     display: inline-flex;
     align-items: center;

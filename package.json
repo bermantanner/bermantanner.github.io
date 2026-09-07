@@ -16,6 +16,6 @@
     "vite": "^8.2.0"
   },
   "dependencies": {
-    "svelte-shader-background": "github:bermantanner/svelte-shader-background"
+    "svelte-shader-background": "github:bermantanner/svelte-shader-background#v0.2.0"
   }
 }
