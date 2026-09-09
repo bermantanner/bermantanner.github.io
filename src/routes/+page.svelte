@@ -81,14 +81,6 @@
     text-align: center;
   }
 
-  /* Three across won't fit a 320px phone; stack them instead. */
-  @media (max-width: 30rem) {
-    .links {
-      grid-auto-flow: row;
-      width: 100%;
-    }
-  }
-
   .center-link {
     font-family: var(--font-mono);
     font-size: clamp(0.85rem, 1.7vw, 1rem);
@@ -105,5 +97,21 @@
   .center-link:hover,
   .center-link:focus-visible {
     background: var(--accent-hover);
+  }
+
+  /* Three across won't fit a 320px phone; stack them instead. Must come after
+     the .center-link rule above to win on source order. */
+  @media (max-width: 30rem) {
+    .links {
+      grid-auto-flow: row;
+      /* Narrower than the text column so they don't span edge to edge. */
+      width: min(100%, 15rem);
+      gap: 0.75rem;
+    }
+
+    .center-link {
+      font-size: 1rem;
+      padding: 0.7rem 1.5rem;
+    }
   }
 </style>
