@@ -101,7 +101,7 @@
     /* Fills the grid cell so cards in a row match height. */
     height: 100%;
     border: 0px solid var(--border);
-    background: rgba(255, 255, 255, 0.528);
+    background: rgba(240, 243, 246, 0.511);
   }
 
   .card__header {
