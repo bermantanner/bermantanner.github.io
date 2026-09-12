@@ -1,6 +1,26 @@
 <script>
   import ProjectCard from '$lib/ProjectCard.svelte';
   import { projects } from '$lib/projects.js';
+
+  const email = 'berman.tanner@gmail.com';
+  let copied = $state(false);
+  let resetTimer;
+
+  // Copies the address instead of opening a mail client. If the clipboard API
+  // is unavailable (insecure context, old browser) the click falls through to
+  // the mailto: href.
+  async function copyEmail(event) {
+    if (!navigator.clipboard) return;
+    event.preventDefault();
+    try {
+      await navigator.clipboard.writeText(email);
+      copied = true;
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => (copied = false), 1600);
+    } catch {
+      window.location.href = `mailto:${email}`;
+    }
+  }
 </script>
 
 <svelte:head>
@@ -11,12 +31,16 @@
 <main class="page">
   <header class="intro">
     <h1 class="name display-face">Tanner<br />Berman</h1>
+    <p class="tagline"></p>
   </header>
 
   <nav class="links">
-    <a class="center-link" href="/resume">resume</a>
-    <a class="center-link" href="https://github.com/bermantanner">github</a>
-    <a class="center-link" href="https://www.linkedin.com/in/tanner-berman/">linkedin</a>
+    <a class="center-link btn" href="/resume">resume</a>
+    <a class="center-link btn" href="https://github.com/bermantanner">github</a>
+    <a class="center-link btn" href="https://www.linkedin.com/in/tanner-berman/">linkedin</a>
+    <a class="center-link btn" href="mailto:{email}" onclick={copyEmail} aria-live="polite">
+      {copied ? 'copied' : 'email'}
+    </a>
   </nav>
 
   <section class="projects">
@@ -68,6 +92,13 @@
     letter-spacing: 0.00em;
   }
 
+  .tagline {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+
   /* Equal-width columns so the labels' centres line up evenly. */
   .links {
     display: grid;
@@ -78,25 +109,9 @@
   }
 
   .center-link {
-    text-align: center;
-  }
-
-  .center-link {
-    font-family: var(--font-mono);
     font-size: clamp(0.85rem, 1.7vw, 1rem);
-    font-weight: 400;
-    letter-spacing: 0.03em;
-    text-decoration: none;
-    color: var(--bg);
-    background: var(--accent);
     /* rem, not em: box size stays independent of the label size. */
     padding: 0.2rem 1.5rem;
-    line-height: 1.2;
-  }
-
-  .center-link:hover,
-  .center-link:focus-visible {
-    background: var(--accent-hover);
   }
 
   /* Three across won't fit a 320px phone; stack them instead. Must come after

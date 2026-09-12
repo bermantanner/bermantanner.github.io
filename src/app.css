@@ -36,6 +36,25 @@
   font-family: var(--font-display);
 }
 
+/* Every button on the site. Sizing stays with each use; this is only the look. */
+.btn {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  text-transform: lowercase;
+  text-decoration: none;
+  text-align: center;
+  color: var(--bg);
+  background: var(--accent);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: var(--accent-hover);
+}
+
 body {
   margin: 0;
   background: var(--bg);

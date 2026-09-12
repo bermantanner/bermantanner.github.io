@@ -87,7 +87,7 @@
   {#if actions?.length}
     <div class="card__actions">
       {#each actions as { label, url } (url)}
-        <a class="card__action" href={url}>{label}</a>
+        <a class="card__action btn" href={url}>{label}</a>
       {/each}
     </div>
   {/if}
@@ -174,14 +174,7 @@
   }
 
   .card__action {
-    text-transform: lowercase;
     font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-    text-decoration: none;
-    color: var(--bg);
-    background: var(--fg);
     padding: 0.3em 1.15em;
-    line-height: 1.2;
   }
 </style>

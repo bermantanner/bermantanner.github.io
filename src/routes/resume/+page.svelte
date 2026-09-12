@@ -9,30 +9,13 @@
 </svelte:head>
 
 <main class="page page-resume">
-  <a class="back-link" href="/">&larr; Back</a>
+  <a class="resume-btn btn" href="/">back</a>
 
   <object class="resume-doc" data={pdf} type="application/pdf">
     <img class="resume-doc" src={fallbackImage} alt="Resume of Tanner Berman" />
   </object>
 
-  <a class="download-btn" href={pdf} download aria-label="Download resume as PDF">
-    <svg
-      viewBox="0 0 24 24"
-      width="20"
-      height="20"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <path d="M12 3v12" />
-      <path d="m7 10 5 5 5-5" />
-      <path d="M4 21h16" />
-    </svg>
-  </a>
+  <a class="resume-btn resume-btn--download btn" href={pdf} download>download</a>
 </main>
 
 <style>
@@ -54,32 +37,13 @@
     box-shadow: 0 8px 30px var(--shadow);
   }
 
-  .download-btn {
+  /* Same sizing as the home page nav buttons. */
+  .resume-btn {
+    font-size: clamp(0.85rem, 1.7vw, 1rem);
+    padding: 0.2rem 1.5rem;
+  }
+
+  .resume-btn--download {
     align-self: center;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    color: var(--bg);
-    background: var(--fg);
-    border-radius: 50%;
-    transition: opacity 0.2s ease;
-  }
-
-  .download-btn:hover,
-  .download-btn:focus-visible {
-    opacity: 0.85;
-  }
-
-  .back-link {
-    font-size: 0.9rem;
-    color: var(--muted);
-    text-decoration: none;
-  }
-
-  .back-link:hover,
-  .back-link:focus-visible {
-    color: var(--fg);
   }
 </style>
