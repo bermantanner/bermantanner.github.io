@@ -31,7 +31,7 @@
 <main class="page">
   <header class="intro">
     <h1 class="name display-face">Tanner<br />Berman</h1>
-    <p class="tagline"></p>
+    <p class="tagline">Software engineer and CS student at UC San Diego, graduating Fall 2026. Building across backend, embedded systems, and AI.</p>
   </header>
 
   <nav class="links">
