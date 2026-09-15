@@ -12,8 +12,10 @@ export const projects = [
   {
     title: 'AiDot / Leedarson BLE',
     badge: 'pending disclosure',
-    mediaSrc: '/projects/aidot-ble.jpg',
-    mediaAlt: 'ESP32 board driving smart bulbs over BLE',
+    mediaSrc: '/projects/aidot-ble-demo.mp4',
+    mediaSrcWebm: '/projects/aidot-ble-demo.webm',
+    mediaType: 'video',
+    mediaAlt: 'ESP32 remote controlling a smart bulb over BLE',
     description:
       'Reverse-engineered an undocumented smart-bulb BLE protocol from APK decompilation and live packet captures, then built a ~250-line ESP32 remote on it, with no app, cloud, or Wi-Fi. The teardown surfaced a crypto flaw that lets commands be forged without the key, disclosed to the vendor under a coordinated window.',
     actions: [{ label: 'GitHub', url: 'https://github.com/bermantanner/aidot-ble-local-control' }]
