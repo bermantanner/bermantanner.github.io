@@ -15,7 +15,7 @@ export const projects = [
     mediaSrc: '/projects/aidot-ble.jpg',
     mediaAlt: 'ESP32 board driving smart bulbs over BLE',
     description:
-      'Reverse-engineered an undocumented smart-bulb BLE protocol from APK decompilation and live packet captures, then built a 230-line ESP32 remote on it — no app, cloud, or Wi-Fi. Encryption weakness reported under coordinated disclosure.',
+      'Reverse-engineered an undocumented smart-bulb BLE protocol from APK decompilation and live packet captures, then built a ~250-line ESP32 remote on it, with no app, cloud, or Wi-Fi. The teardown surfaced a crypto flaw that lets commands be forged without the key, disclosed to the vendor under a coordinated window.',
     actions: [{ label: 'GitHub', url: 'https://github.com/bermantanner/aidot-ble-local-control' }]
   },
   {
