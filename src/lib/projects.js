@@ -23,8 +23,10 @@ export const projects = [
   {
     title: 'Parsley360 Ingestion Pipeline',
     badge: 'closed source',
-    mediaSrc: '/projects/parsley360.jpg',
-    mediaAlt: 'Redacted view of the ingestion pipeline graph',
+    mediaSrc: '/projects/parsley360.mp4',
+    mediaSrcWebm: '/projects/parsley360.webm',
+    mediaType: 'video',
+    mediaAlt: 'Parsley360 pipeline cover animation',
     description:
       'Fault-tolerant ETL pipeline that scrapes, cleans, and normalizes thousands of unstructured documents into an ML training corpus, replacing a fully manual process. Idempotent upserts, batched transfers, content-type validation. Further detail withheld under NDA.',
     actions: []
