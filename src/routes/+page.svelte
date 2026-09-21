@@ -1,5 +1,6 @@
 <script>
   import ProjectCard from '$lib/ProjectCard.svelte';
+  import LilGuy from '$lib/LilGuy.svelte';
   import { projects } from '$lib/projects.js';
 
   const email = 'berman.tanner@gmail.com';
@@ -30,7 +31,10 @@
 
 <main class="page">
   <header class="intro">
-    <h1 class="name display-face">Tanner<br />Berman</h1>
+    <div class="intro__row">
+      <h1 class="name display-face">Tanner<br />Berman</h1>
+      <LilGuy size={50} />
+    </div>
     <p class="tagline">Software engineer and CS student at UC San Diego, graduating Fall 2026. Building across backend, embedded systems, and AI.</p>
   </header>
 
@@ -75,12 +79,22 @@
     gap: 1.5rem;
   }
 
+  /* width:100% because .page shrink-wraps its children. */
   .intro {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
-    margin-bottom: 0;
+    width: 100%;
+  }
+
+  /* Name on the left, avatar on the right edge of the same row. The avatar's
+     size matches the two-line name: 2 x 1.75rem x 0.9 line-height = 50px. */
+  .intro__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
   }
 
   .name {
