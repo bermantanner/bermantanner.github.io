@@ -48,11 +48,20 @@
   text-align: center;
   color: var(--bg);
   background: var(--accent);
+  /* Mobile browsers paint a translucent blue overlay on tapped links. */
+  -webkit-tap-highlight-color: transparent;
 }
 
-.btn:hover,
 .btn:focus-visible {
   background: var(--accent-hover);
+}
+
+/* Hover only where there's a real pointer. On touch screens :hover sticks on
+   after a tap, which shows on the email button since it doesn't navigate. */
+@media (hover: hover) {
+  .btn:hover {
+    background: var(--accent-hover);
+  }
 }
 
 body {

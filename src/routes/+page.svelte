@@ -132,15 +132,16 @@
      the .center-link rule above to win on source order. */
   @media (max-width: 30rem) {
     .links {
+      /* 2x2, filling left-to-right so the order matches desktop. */
       grid-auto-flow: row;
-      /* Narrower than the text column so they don't span edge to edge. */
-      width: min(100%, 15rem);
-      gap: 0.75rem;
+      grid-template-columns: repeat(2, 1fr);
+      width: min(100%, 17rem);
+      gap: 0.6rem;
     }
 
     .center-link {
       font-size: 1rem;
-      padding: 0.7rem 1.5rem;
+      padding: 0.4rem 1.25rem;
     }
   }
 </style>
