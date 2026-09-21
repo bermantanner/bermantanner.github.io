@@ -6,6 +6,9 @@
   <!-- Tints the mobile browser chrome to match the page. -->
   <meta name="theme-color" content="#d3e6ef" />
   <link rel="icon" href="%sveltekit.assets%/favicon.svg" type="image/svg+xml" />
+  <!-- Safari doesn't render SVG favicons; PNG fallback plus the iOS home-screen icon. -->
+  <link rel="icon" href="%sveltekit.assets%/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="%sveltekit.assets%/apple-touch-icon.png" />
   %sveltekit.head%
 </head>
 <body>
