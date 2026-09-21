@@ -22,7 +22,9 @@
   /* Wider than the shared column so the document gets its full 760px. */
   .page-resume {
     max-width: 52rem;
-    padding-block: 3rem;
+    padding-block:
+      calc(3rem + env(safe-area-inset-top, 0px))
+      calc(3rem + env(safe-area-inset-bottom, 0px));
   }
 
   /* Shared by the <object> and its <img> fallback so both size identically. */

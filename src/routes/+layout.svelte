@@ -20,5 +20,9 @@
   scale={1.15}
   swirl={1.2}
   contrast={0.5}
+  style="height: 120lvh"
 />
+<!-- 120lvh, not inset:0: iOS Safari reveals more viewport than lvh reports
+     when its bottom bar collapses, leaving a gap under a 100lvh canvas.
+     Oversizing covers it without the canvas ever resizing mid-scroll. -->
 {@render children()}
