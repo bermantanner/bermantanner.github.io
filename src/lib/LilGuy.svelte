@@ -16,15 +16,24 @@
     const spec = generate();
     label = `1 in ${odds(spec).oneIn.toLocaleString()}`;
 
-    const root = getComputedStyle(document.documentElement);
-    const avatar = mount(canvas, spec, {
-      size,
-      palette: {
+    const palette = () => {
+      const root = getComputedStyle(document.documentElement);
+      return {
         base: root.getPropertyValue('--fg').trim(),
         ink: root.getPropertyValue('--bg').trim()
-      }
-    });
-    return () => avatar.destroy();
+      };
+    };
+    const avatar = mount(canvas, spec, { size, palette: palette() });
+
+    // The tokens change with the OS theme; recolour rather than redraw.
+    const query = window.matchMedia('(prefers-color-scheme: dark)');
+    const recolour = () => avatar.setOptions({ palette: palette() });
+    query.addEventListener('change', recolour);
+
+    return () => {
+      query.removeEventListener('change', recolour);
+      avatar.destroy();
+    };
   });
 
   // Each click spawns its own floater so rapid clicks stack rather than reset.
@@ -78,7 +87,7 @@
     font-family: var(--font-mono);
     font-size: 0.8rem;
     letter-spacing: 0.03em;
-    color: var(--accent-hover);
+    color: var(--highlight);
     white-space: nowrap;
     /* Slow rise, quick fade that starts partway through the rise. */
     animation:

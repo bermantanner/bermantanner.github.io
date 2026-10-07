@@ -11,7 +11,9 @@
 }
 
 :root {
-  color-scheme: light;
+  /* Declaring both tells the browser the site handles dark itself, so built-in
+     forced-dark modes leave it alone instead of inverting it. */
+  color-scheme: light dark;
   --bg: #ffffff;
   /* What shows behind the shader: iOS overscroll bounce, and the whole page if
      WebGL is unavailable. A mid-tone from the shader palette so it blends. */
@@ -22,12 +24,40 @@
   --border: rgba(15, 23, 32, 0.16);
   --accent: #0f1720;
   --accent-hover: rgb(33, 26, 156);
+  /* Button label colour. Its own token because --bg flips dark in dark mode. */
+  --on-accent: #ffffff;
+  /* Accent used as text (badges, links, focus ring) rather than as a fill.
+     Same as --accent here; dark mode needs them to differ. */
+  --accent-text: #0f1720;
+  /* The lil guy's odds text. */
+  --highlight: rgb(33, 26, 156);
+  --card-bg: rgba(240, 243, 246, 0.511);
   --font-mono: 'Courier New', Courier, monospace;
   --font-display: 'Anybody', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1219;
+    --page-bg: #101b26;
+    /* Soft grey-blue rather than near-white: ~10:1 reads clearly without glare. */
+    --fg: #cdd6e0;
+    --muted: #94a3b4;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --border: rgba(205, 214, 224, 0.14);
+    /* Mid-navy buttons with soft labels; bright fills were too loud on dark. */
+    --accent: #2d4a69;
+    --accent-hover: #3a5c80;
+    --on-accent: #dbe3ec;
+    --accent-text: #9fb8d6;
+    --highlight: #a7b2e6;
+    /* Lighter than every shader stop, so cards always read as raised panels. */
+    --card-bg: rgba(34, 50, 68, 0.7);
+  }
+}
+
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--accent-text);
   outline-offset: 3px;
 }
 
@@ -49,7 +79,7 @@
   text-transform: lowercase;
   text-decoration: none;
   text-align: center;
-  color: var(--bg);
+  color: var(--on-accent);
   background: var(--accent);
   /* Mobile browsers paint a translucent blue overlay on tapped links. */
   -webkit-tap-highlight-color: transparent;

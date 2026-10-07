@@ -3,8 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <!-- Read before any CSS loads, so the first paint is already the right scheme. -->
+  <meta name="color-scheme" content="light dark" />
   <!-- Tints the mobile browser chrome to match the page. -->
-  <meta name="theme-color" content="#d3e6ef" />
+  <meta name="theme-color" content="#d3e6ef" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#101b26" media="(prefers-color-scheme: dark)" />
   <link rel="icon" href="%sveltekit.assets%/favicon.svg" type="image/svg+xml" />
   <!-- Safari doesn't render SVG favicons; PNG fallback plus the iOS home-screen icon. -->
   <link rel="icon" href="%sveltekit.assets%/favicon-32.png" type="image/png" sizes="32x32" />

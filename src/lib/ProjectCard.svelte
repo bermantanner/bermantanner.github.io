@@ -101,7 +101,7 @@
     /* Fills the grid cell so cards in a row match height. */
     height: 100%;
     border: 0px solid var(--border);
-    background: rgba(240, 243, 246, 0.511);
+    background: var(--card-bg);
   }
 
   .card__header {
@@ -125,7 +125,7 @@
     font-size: 0.72rem;
     line-height: 1.2;
     letter-spacing: 0.08em;
-    color: var(--accent);
+    color: var(--accent-text);
     white-space: nowrap;
   }
 
@@ -160,7 +160,7 @@
   }
 
   .card__body :global(a) {
-    color: var(--accent);
+    color: var(--accent-text);
     text-underline-offset: 0.2em;
   }
 
